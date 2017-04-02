@@ -1,0 +1,43 @@
+<html>
+<head>
+<title>Online Pizza</title>
+<script src="jquery-3.2.0.min.js"></script>
+<script>
+$(document).ready(function () {
+$("#placeorder").click(function () {
+$("#status").html("Placing Order");
+	 $.ajax({url: "http://kernel32.in:3000/send/data", success: function(result){
+        if(result == "done") { 
+		$("#status").html("Order Placed");
+		} }, error : function () {
+		console.err(arguments);
+		$("#status").html("Error in placing order");
+		}
+    });
+});
+});
+</script>
+</head>
+<body>
+<div style="text-align:center">
+<h1 style="
+    font-family: fantasy;
+">Online Pizza Order</h1>
+<input id="placeorder" type="button" value="Order Now" style="
+    background-color: aquamarine;
+    border-radius: 5px;
+    width: 150px;
+    height: 100px;
+    font-size: 20px;
+">
+
+<div id="status" style="
+    text-align: center;
+    color: blue;
+    font-size: 20px;
+	margin-top:10px;
+    font-family: monospace;
+"></div>
+</div>
+</body>
+</html>

@@ -6,6 +6,7 @@ const char* password = "12345678123";
 const char* host = "kernel32.in";
 
 const int BUTTON_REC =4;
+const int CONN_LED=16;
 const int DONE_LED=5;
 
 
@@ -14,8 +15,11 @@ const int DONE_LED=5;
 void setup() {
     pinMode(BUTTON_REC, INPUT_PULLUP);
     pinMode(DONE_LED,OUTPUT);
+    pinMode(CONN_LED,OUTPUT);
     attachInterrupt(digitalPinToInterrupt(BUTTON_REC), resetData, CHANGE);
   Serial.begin(115200);
+      digitalWrite(CONN_LED,LOW);
+
   delay(10);
 
   // We start by connecting to a WiFi network
@@ -35,6 +39,7 @@ void setup() {
     delay(500);
     Serial.print(".");
   }
+    digitalWrite(CONN_LED,HIGH);
 
   Serial.println("");
   Serial.println("WiFi connected");  

@@ -1,16 +1,16 @@
 /*
 
 
- Also useful:
- http://maxpromer.github.io/LCD-Character-Creator/
+  Also useful:
+  http://maxpromer.github.io/LCD-Character-Creator/
 
- */
+*/
 
 // include the library code:
 #include <LiquidCrystal_SR.h>
 
 // initialize the library with the numbers of the interface pins
-LiquidCrystal_SR lcd(2, 10, 9); 
+LiquidCrystal_SR lcd(2, 10, 9);
 
 // make some custom characters:
 byte heart[8] = {
@@ -84,7 +84,7 @@ void setup() {
   lcd.createChar(4, armsUp);
 
   // Print a message to the lcd.
-  lcd.setCursor(0,0);
+  lcd.setCursor(0, 0);
   lcd.print("I ");
   lcd.write(byte(0)); // when calling lcd.write() '0' must be cast as a byte
   lcd.print(" Arduino! ");
@@ -108,8 +108,8 @@ void loop() {
   lcd.write(4);
   delay(delayTime);
   pos++;
-  if(pos == 16) {
-    pos=0;
+  if (pos == 16) {
+    pos = 0;
   }
   lcd.clear();
 }

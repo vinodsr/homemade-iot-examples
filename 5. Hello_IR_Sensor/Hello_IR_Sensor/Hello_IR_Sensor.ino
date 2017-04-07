@@ -16,7 +16,7 @@ void setup() {
 void loop() {
   isObstacle = analogRead(isObstaclePin);
   Serial.println(isObstacle);
-  if (isObstacle == LOW)
+  if (isObstacle <= 70)
   {
     Serial.println("OBSTACLE!!, OBSTACLE!!");
     digitalWrite(LED, HIGH);

@@ -54,7 +54,7 @@ void alarm() {
 void loop() {
   isObstacle = analogRead(isObstaclePin);
   Serial.println(isObstacle);
-  if (isObstacle == LOW)
+  if (isObstacle <= 70)
   {
     display("Caught");
     Serial.println("OBSTACLE!!, OBSTACLE!!");
